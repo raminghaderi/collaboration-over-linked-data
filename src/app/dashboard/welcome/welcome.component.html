@@ -1,0 +1,49 @@
+<nb-card>
+  <nb-card-header>
+    <h1>Welcome to COLD</h1>
+    <p><b>C</b>ollaboration <b>O</b>ver <b>L</b>inked <b>D</b>ata</p>
+  </nb-card-header>
+
+  
+        <nb-card>
+            <nb-card-header>
+              <h2>You can create a new chat space:</h2> 
+              <p>Enter a name for the space and click 'Create a workspace'</p>
+              </nb-card-header> 
+        <nb-card-body>
+              <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon3">{{workspace}}/{{appRootDir}}/</span>
+               </div>
+                   <input type="text" nbInput [(ngModel)]="folderName"  class="form-control" id="basic-url" aria-describedby="basic-addon3" required>
+     
+              </div>
+         
+        
+        <button type="button" nbButton (click)="initWorkspace()" [disabled]="!folderName" class="btn btn-primary btn-lg btn-block my-3">Create a workspace</button>
+    
+      </nb-card-body>  
+      </nb-card>
+         <nb-card>
+            <nb-card-header>
+                <h2>You can also join an existing chat space:</h2> 
+                <p>Enter the url of the chat space and click 'Join a workspace'</p>
+                </nb-card-header>
+         <nb-card-body>
+            <div class="input-group mb-3">
+            <input type="text" nbInput class="form-control" #basicUrl aria-describedby="basic-addon3">
+        </div>
+        <button type="button" nbButton class="btn btn-primary btn-lg btn-block my-3" status="primary"  (click)="joinWorkSpace(basicUrl.value)" >Join a workspace</button>
+      </nb-card-body>
+         </nb-card>
+   <!--    <br>
+        <h1>Your Workspaces</h1>
+        <br>
+        <ul class="list-group">
+          <--TO DO: Make it a link ->
+          <li class="list-group-item" *ngFor="let wkspace of existingWorkspaces">
+            <a [routerLink]="" (click)="goToWkSpace(wkspace.name)"> {{ wkspace.name }}</a>
+            <button (click)=deleteWKspace(wkspace.url)>X</button> </li>
+        </ul>  -->
+
+</nb-card>

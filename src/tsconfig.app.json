@@ -1,0 +1,31 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "module": "es2015",
+    "baseUrl": "./",
+    "paths": {
+      "@angular/*": [
+        "../node_modules/@angular/*"
+      ],
+      "@nebular/*": [
+        "../node_modules/@nebular/*"
+      ],
+      "solid-auth-client": ["node_modules/solid-auth-client/dist-lib/solid-auth-client.bundle.js"],
+    }
+  },
+   "exclude": [
+    "test.ts",
+    "**/*.spec.ts",
+    "../node_modules/@nebular/**/*.spec.ts"
+  ],
+  "include": [
+    "../src/*.ts",
+    "../src/**/*.ts",
+    "../node_modules/@nebular/**/*.ts"
+  ],
+  "types": [
+    "node"
+  ],
+  "resolveJsonModule": true
+}

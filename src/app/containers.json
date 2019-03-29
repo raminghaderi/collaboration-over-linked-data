@@ -1,0 +1,14 @@
+{
+	
+	 "rootContainer": "cold",
+	 "subContainers": {
+		 "chatThreadsMetadataResource": {
+									"path":"ChatMetadata",
+									"data":"@prefix im: <http://www.w3.org/chat-rdf-vocab#>.\n\n<> a im:metadata."
+								},
+	 "friendRequestsContainer": "Requests",
+	 "chatThreadsContainer":"Threads",
+	"chatNotifications":"Notifications"	
+	} 
+
+}

@@ -1,0 +1,107 @@
+<nb-card>
+<nb-card-body>
+
+    <div class="row mx-auto">
+      <div class="chat-container col-md-12 col-lg-12 col-xxxl-7">
+  <!-- EXAMPLE TOP NAV -->
+  <h1>Profile</h1>
+
+  <!-- LOADING IMAGE -->
+  <!--div class="loading-image" *ngIf="loadingProfile"> 
+    <i class="fas fa-circle-notch fa-4x fa-spin"></i>
+  </div>
+-->
+  <!-- MAIN PROFILE -->
+ <!-- <div class="profile-fields-container" *ngIf="!loadingProfile"> -->
+    <div class="profile-image-container">
+        <!--<img [src]="profile.picture" />-->
+      <div class="text-center">
+        <img [src]="profile.picture" alt="..." class="circle-pic mx-auto d-block"
+             height="200" width="200"/>
+      </div>
+    </div>
+   
+    <form #f="ngForm" (submit)="onSubmit()" style="padding-top: 26px;">
+      <div class="fields pure-g form-group">
+        <!-- NAME -->
+        <div class="col-auto">
+          <label class="sr-only" for="inlineFormInputGroup">name</label>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><i class="fas fa-user"></i> </div>
+            </div>
+          <input nbInput [(ngModel)]="profile.fn" class="field-text form-control"
+                 id="inlineFormInputGroup" name="fn" nbInput placeholder="Name" type="text" />
+          </div>
+        </div>
+
+        <!-- PHONE -->
+        <div class="col-auto">
+          <label class="sr-only" for="inlineFormInputGroupPhone">phone</label>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><i class="fas fa-phone"></i> </div>
+            </div>
+            <input nbInput [(ngModel)]="profile.phone" class="field-text form-control"
+                   id="inlineFormInputGroupPhone" name="phone" nbInput placeholder="Phone" type="text" />
+          </div>
+        </div>
+      </div>
+
+      <div class="fields pure-g form-group">
+        <!-- ROLE -->
+        <div class="col-auto">
+          <label class="sr-only" for="inlineFormInputGroupRole">phone</label>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><i class="fas fa-user-astronaut"></i> </div>
+            </div>
+            <input [(ngModel)]="profile.role" class="field-text form-control"
+                   id="inlineFormInputGroupRole" name="role" nbInput placeholder="Role" type="text" />
+          </div>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="col-auto ">
+          <label class="sr-only" for="inlineFormInputGroupMail">mail</label>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><i class="fas fa-envelope"></i> </div>
+            </div>
+            <input [(ngModel)]="profile.email" class="field-text form-control"
+                   id="inlineFormInputGroupMail" name="email" nbInput placeholder="Email" type="text" />
+          </div>
+        </div>
+      </div>
+
+      <div class="fields pure-g">
+        <!-- ORGANIZATION -->
+        <div class="col-auto pure-u-1-1 pure-u-md-1-2 form-group">
+          <label class="sr-only" for="inlineFormInputGroupCompany">company</label>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><i class="fas fa-building"></i> </div>
+            </div>
+            <input [(ngModel)]="profile.company" class="field-text form-control"
+                   id="inlineFormInputGroupCompany" name="company" nbInput placeholder="Company" type="text" />
+          </div>
+        </div>
+
+        <!-- ADDRESS 
+        <div class="pure-u-1-1 pure-u-md-1-2 form-group">
+          <i class="fas fa-map-marker-alt" style="width: 12px; margin-left: 2px;"></i><input type="text" nbInput class="field-text form-control" name="address" placeholder="ADDRESS" [(ngModel)]="profile.address.street" />
+        </div>
+      -->
+      </div>
+
+      <div class="profile-save-button-container">
+        <button [disabled]="!cardForm || cardForm.pristine" class="wide-button profile-save-button"
+                nbButton type="submit">Save</button>
+    </div>
+    </form>
+  <!--</div>-->
+      </div>
+  </div>
+
+  </nb-card-body>
+</nb-card>

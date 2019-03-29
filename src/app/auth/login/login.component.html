@@ -1,0 +1,76 @@
+<h1 id="title" class="title">Login</h1>
+<p class="sub-title">Hello! Log in with your email.</p>
+
+<nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
+  <p class="alert-title"><b>Oh snap!</b></p>
+  <ul class="alert-message-list">
+    <li *ngFor="let error of errors" class="alert-message">{{ error }}</li>
+  </ul>
+</nb-alert>
+
+<nb-alert *ngIf="showMessages.success && messages?.length && !submitted" outline="success" role="alert">
+  <p class="alert-title"><b>Hooray!</b></p>
+  <ul class="alert-message-list">
+    <li *ngFor="let message of messages" class="alert-message">{{ message }}</li>
+  </ul>
+</nb-alert>
+
+<img src="../../assets/images/cold-new.png" height="65" width="65">
+
+  <!-- LOGIN TITLE -->
+  <h2>
+    Login with Solid Identity
+  </h2>
+<section>
+  <!-- PROVIDER SELECTION -->
+  <div style="margin-top: 10px;">
+    <nb-select class="login-select"
+               placeholder="Select ID Provider"
+               dropdownPosition="bottom"
+               options="identityProviders"
+               [(ngModel)]="selectedProviderUrl"
+               style="width: 360px; height: 48px; margin-left: auto; margin-right: auto;">
+             
+               <nb-option  *ngFor="let option of identityProviders" [value]="option.loginUrl">
+                  {{ option.name }}
+                </nb-option>
+               
+          
+
+    </nb-select>
+    <input type="text"
+           class="wide-text"
+           *ngIf="selectedProviderUrl===null"
+           placeholder="Enter WebID"
+           style="margin-top:10px; padding: 12px 10px; width: 340px; height: 16px; display: block; margin-left: auto; margin-right: auto;"
+           [(ngModel)]="customProviderUrl" />
+    <button class="wide-button" nbButton
+    (click)="onLogin()" *ngIf="selectedProviderUrl !== undefined || customProviderUrl !== undefined" 
+    [disabled]="selectedProviderUrl===null && !customProviderUrl" style="margin-top:10px;">
+    Go</button>
+  </div>
+
+</section>
+
+
+<section *ngIf="socialLinks && socialLinks.length > 0" class="links" aria-label="Social sign in">
+  or enter with:
+  <div class="socials">
+    <ng-container *ngFor="let socialLink of socialLinks">
+      <a *ngIf="socialLink.link"
+         [routerLink]="socialLink.link"
+         [attr.target]="socialLink.target"
+         [attr.class]="socialLink.icon"
+         [class.with-icon]="socialLink.icon">{{ socialLink.title }}</a>
+      <a *ngIf="socialLink.url"
+         [attr.href]="socialLink.url"
+         [attr.target]="socialLink.target"
+         [attr.class]="socialLink.icon"
+         [class.with-icon]="socialLink.icon">{{ socialLink.title }}</a>
+    </ng-container>
+  </div>
+</section>
+
+<section class="another-action" aria-label="Register">
+    <button nbButton class="wide-button" (click)="goToRegistration()">Register</button>
+</section>
